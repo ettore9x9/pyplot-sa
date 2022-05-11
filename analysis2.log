@@ -1,0 +1,148 @@
+--------------------------- 
+ TEST NUMBER 1 with my_controller.py
+INFO:root:  Number of laps: 3
+INFO:root:  Lap Time: 
+INFO:root:            208.920000 
+INFO:root:            206.980000 
+INFO:root:            209.140000 
+INFO:root:  Total time:   625.040000
+INFO:root:  Average time: 208.346667
+INFO:root:  Minimum distance from obstacles: 0.475719
+INFO:root:  Average distance from obstacles: 0.837373
+INFO:root:---------------------------
+--------------------------- 
+ TEST NUMBER 1 with given_controller.py
+INFO:root:  !!!FAILURE!!!: The robot is running in the wrong direction.
+INFO:root:---------------------------
+--------------------------- 
+ TEST NUMBER 2 with my_controller.py
+INFO:root:  Number of laps: 3
+INFO:root:  Lap Time: 
+INFO:root:            213.260000 
+INFO:root:            211.800000 
+INFO:root:            207.070000 
+INFO:root:  Total time:   632.130000
+INFO:root:  Average time: 210.710000
+INFO:root:  Minimum distance from obstacles: 0.394006
+INFO:root:  Average distance from obstacles: 0.828914
+INFO:root:---------------------------
+--------------------------- 
+ TEST NUMBER 2 with given_controller.py
+INFO:root:  !!!FAILURE!!!: The robot is running in the wrong direction.
+INFO:root:---------------------------
+--------------------------- 
+ TEST NUMBER 3 with my_controller.py
+INFO:root:  Number of laps: 3
+INFO:root:  Lap Time: 
+INFO:root:            213.980000 
+INFO:root:            209.370000 
+INFO:root:            204.820000 
+INFO:root:  Total time:   628.170000
+INFO:root:  Average time: 209.390000
+INFO:root:  Minimum distance from obstacles: 0.475719
+INFO:root:  Average distance from obstacles: 0.815560
+INFO:root:---------------------------
+--------------------------- 
+ TEST NUMBER 3 with given_controller.py
+INFO:root:  !!!FAILURE!!!: The robot is running in the wrong direction.
+INFO:root:---------------------------
+--------------------------- 
+ TEST NUMBER 4 with my_controller.py
+INFO:root:  Number of laps: 3
+INFO:root:  Lap Time: 
+INFO:root:            201.050000 
+INFO:root:            197.320000 
+INFO:root:            203.650000 
+INFO:root:  Total time:   602.020000
+INFO:root:  Average time: 200.673333
+INFO:root:  Minimum distance from obstacles: 0.475719
+INFO:root:  Average distance from obstacles: 0.837736
+INFO:root:---------------------------
+--------------------------- 
+ TEST NUMBER 4 with given_controller.py
+--------------------------- 
+ TEST NUMBER 5 with my_controller.py
+INFO:root:  Number of laps: 3
+INFO:root:  Lap Time: 
+INFO:root:            210.650000 
+INFO:root:            218.620000 
+INFO:root:            208.190000 
+INFO:root:  Total time:   637.460000
+INFO:root:  Average time: 212.486667
+INFO:root:  Minimum distance from obstacles: 0.438129
+INFO:root:  Average distance from obstacles: 0.814875
+INFO:root:---------------------------
+--------------------------- 
+ TEST NUMBER 5 with given_controller.py
+--------------------------- 
+ TEST NUMBER 6 with my_controller.py
+INFO:root:  Number of laps: 3
+INFO:root:  Lap Time: 
+INFO:root:            198.900000 
+INFO:root:            221.190000 
+INFO:root:            210.030000 
+INFO:root:  Total time:   630.120000
+INFO:root:  Average time: 210.040000
+INFO:root:  Minimum distance from obstacles: 0.475719
+INFO:root:  Average distance from obstacles: 0.824151
+INFO:root:---------------------------
+--------------------------- 
+ TEST NUMBER 6 with given_controller.py
+INFO:root:  !!!FAILURE!!!: The robot is running in the wrong direction.
+INFO:root:---------------------------
+--------------------------- 
+ TEST NUMBER 7 with my_controller.py
+INFO:root:  Number of laps: 3
+INFO:root:  Lap Time: 
+INFO:root:            216.150000 
+INFO:root:            206.800000 
+INFO:root:            208.550000 
+INFO:root:  Total time:   631.500000
+INFO:root:  Average time: 210.500000
+INFO:root:  Minimum distance from obstacles: 0.475719
+INFO:root:  Average distance from obstacles: 0.835397
+INFO:root:---------------------------
+--------------------------- 
+ TEST NUMBER 7 with given_controller.py
+INFO:root:  Number of laps: 3
+INFO:root:  Lap Time: 
+INFO:root:            179.990000 
+INFO:root:            184.220000 
+INFO:root:            181.790000 
+INFO:root:  Total time:   546.000000
+INFO:root:  Average time: 182.000000
+INFO:root:  Minimum distance from obstacles: 0.252777
+INFO:root:  Average distance from obstacles: 0.759352
+INFO:root:---------------------------
+--------------------------- 
+ TEST NUMBER 8 with my_controller.py
+INFO:root:  Number of laps: 3
+INFO:root:  Lap Time: 
+INFO:root:            218.330000 
+INFO:root:            206.940000 
+INFO:root:            208.720000 
+INFO:root:  Total time:   633.990000
+INFO:root:  Average time: 211.330000
+INFO:root:  Minimum distance from obstacles: 0.475719
+INFO:root:  Average distance from obstacles: 0.831625
+INFO:root:---------------------------
+--------------------------- 
+ TEST NUMBER 8 with given_controller.py
+--------------------------- 
+ TEST NUMBER 9 with my_controller.py
+INFO:root:  Number of laps: 3
+INFO:root:  Lap Time: 
+INFO:root:            203.030000 
+INFO:root:            200.780000 
+INFO:root:            201.530000 
+INFO:root:  Total time:   605.340000
+INFO:root:  Average time: 201.780000
+INFO:root:  Minimum distance from obstacles: 0.436815
+INFO:root:  Average distance from obstacles: 0.823781
+INFO:root:---------------------------
+--------------------------- 
+ TEST NUMBER 9 with given_controller.py
+INFO:root:  !!!FAILURE!!!: The robot is running in the wrong direction.
+INFO:root:---------------------------
+--------------------------- 
+ TEST NUMBER 10 with my_controller.py

@@ -1,6 +1,7 @@
 from __future__ import print_function
 import time
 from sr.robot import *
+import funcAnalysis as fa
 
 R = Robot()
 """ instance of the class Robot"""
@@ -108,7 +109,9 @@ def check_left_side():
     else:
    	return dist
   	
-while 1:
+analyzer = fa.analyzer()
+
+while analyzer.collecting is True:
     dist, rot_y = find_silver_token()
     go = True
     if dist < 2.0:
@@ -163,6 +166,8 @@ while 1:
                 dist, rot_y = find_golden_token()
                 if dist>2.0:
                     break
+
+    analyzer.update(R)
          
         
 

@@ -1,12 +1,9 @@
 from __future__ import print_function
-
 import time
-
 import sys
-
 import numpy as np
-
 from sr.robot import *
+import funcAnalysis as fa
 
 # Run with: $ python2 run.py ex_roam.py
 
@@ -241,9 +238,10 @@ def moveSilver():
 
 def main():
 
+    analyzer = fa.analyzer()
     print("\n \n ### Let's start! ### \n \n")
 
-    while(1):
+    while analyzer.collecting is True:
         rf = searchRoad() # Road found
         if rf is 0: # There are no obstacles in front of the robot.
             dist, rot_y = find_silver_token() # Find the closest silver token.
@@ -261,5 +259,9 @@ def main():
         else: # No road exists, so an error occours.
             print("No road found. Try to search with little sectors (increase nsect).")
             return -1
+
+        analyzer.update(R)
+
+    exit()
 
 main()

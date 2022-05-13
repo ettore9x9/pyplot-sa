@@ -37,6 +37,7 @@ $ ./run.sh
 
 >The folder `data_collection` stores all data extracted. If you need a more verbose output, you can look at the file `analysis.log`: which reports all the steps performed py the `run.sh`.
 
+!!!! when the robot is blocked in the circuit, the average distance is falsed
 
 Statistical analysis
 --------------------

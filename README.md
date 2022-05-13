@@ -39,6 +39,8 @@ $ ./run.sh
 
 !!!! when the robot is blocked in the circuit, the average distance is falsed
 
+!!! when the robot performs only one lap, the average time for lap is falsed
+
 Statistical analysis
 --------------------
 

@@ -151,17 +151,17 @@ class SunnySideUpArena(Arena):
             count+1
             
         token=SilverToken(self,count)
-        token.location = (-8.1, 3.2)
+        token.location = (-8.1, -1.8)
         self.objects.append(token) 
         count+1
         
         token=SilverToken(self,count)
-        token.location = (-6.9, 4.1)
+        token.location = (-3.7, 3.75)
         self.objects.append(token) 
         count+1
         
         token=SilverToken(self,count)
-        token.location = (-2.6, 2.5)
+        token.location = (-2.4, 1.4)
         self.objects.append(token) 
         count+1
         
@@ -171,17 +171,17 @@ class SunnySideUpArena(Arena):
         count+1
         
         token=SilverToken(self,count)
-        token.location = (4, 3.9)
+        token.location = (5, 4.1)
         self.objects.append(token) 
         count+1
         
         token=SilverToken(self,count)
-        token.location = (8.1, -2.8)
+        token.location = (7.9, 0.4)
         self.objects.append(token) 
         count+1
         
         token=SilverToken(self,count)
-        token.location = (6.1, -3.8)
+        token.location = (-0.5, -4.1)
         self.objects.append(token) 
         count+1
         

@@ -2,7 +2,7 @@
 
 new_arena=""
 
-for i in {1..40}
+for i in {36..40}
 do
 	rm sr/robot/arenas/sunny_side_up_arena.pyc
 	new_arena="sr/robot/arenas/arenas_for_statistical_analysis/sunny_side_up_arena${i}.py"

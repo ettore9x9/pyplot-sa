@@ -9,7 +9,7 @@ histfit(my_avg_dist)
 histfit(gv_avg_dist)
 xlabel("average distance from obstacles [m]")
 ylabel("number of occurrences")
-title("Average distancies")
+title("Average distances")
 legend("my\_controller", "fitted normal density", "given\_controller")
 hold off
 
@@ -18,7 +18,7 @@ hold on
 histfit(my_avg_dist_p - gv_avg_dist_p)
 xlabel("difference of average distance from obstacles [m]")
 ylabel("number of occurrences")
-title("Difference of average distancies")
+title("Difference of average distances")
 legend("difference", "fitted normal density")
 hold off
 
@@ -28,7 +28,7 @@ histogram(my_min_dist)
 histogram(gv_min_dist)
 xlabel("minimum distance from obstacles [m]")
 ylabel("number of occurrences")
-title("Minimum distancies")
+title("Minimum distances")
 legend("my\_controller", "given\_controller")
 hold off
 
@@ -37,7 +37,7 @@ hold on
 histogram(my_min_dist_p - gv_min_dist_p)
 xlabel("difference of minimun distance from obstacles [m]")
 ylabel("number of occurrences")
-title("Difference of minimum distancies")
+title("Difference of minimum distances")
 legend("difference")
 hold off
 
@@ -60,25 +60,25 @@ title("Difference of lap times")
 legend("difference", "fitted normal density")
 hold off
 
-fprintf("\nShapiro-Wilk test for average distancies:---------------------------\n")
-fprintf("Null hypothesis: the differences of the average distancies follow a normal distribution.\n")
+fprintf("\nShapiro-Wilk test for average distances:---------------------------\n")
+fprintf("Null hypothesis: the differences of the average distances follow a normal distribution.\n")
 [H_sw_dist, P_sw_dist, W_sw_dist] = swtest(my_avg_dist_p - gv_avg_dist_p);
 fprintf("H = %d, p = %f\n", H_sw_dist, P_sw_dist)
 fprintf("We failed to reject the null hypotesis.\n")
 
-fprintf("\nPaired ttest for average distancies:---------------------------\n")
+fprintf("\nPaired ttest for average distances:---------------------------\n")
 fprintf("Null hypothesis: the two samples of average distances are drawn from the same population.\n")
 [H_tt_dist, P_tt_dist, CI_tt_dist, STATS_tt_dist] = ttest(my_avg_dist_p, gv_avg_dist_p);
 fprintf("H = %d, p = %f\n", H_tt_dist, P_tt_dist)
 fprintf("We can reject the null hypothesis.\n")
 
-fprintf("\nShapiro-Wilk test for minimum distancies:---------------------------\n")
-fprintf("Null hypothesis: the differences of the minimum distancies follow a normal distribution.\n")
+fprintf("\nShapiro-Wilk test for minimum distances:---------------------------\n")
+fprintf("Null hypothesis: the differences of the minimum distances follow a normal distribution.\n")
 [H_sw_min, P_sw_min, W_sw_min] = swtest(my_min_dist_p - gv_min_dist_p);
 fprintf("H = %d, p = %f\n", H_sw_min, P_sw_min)
 fprintf("We can reject the null hypothesis.\n")
 
-fprintf("\nU-test for minimum distancies:---------------------------\n")
+fprintf("\nU-test for minimum distances:---------------------------\n")
 fprintf("Null hypothesis: the two samples of minimum distances are drawn from the same population.\n")
 [P_rs_min, H_rs_min, STATS_rs_min] = ranksum(my_min_dist_p, gv_min_dist_p);
 fprintf("H = %d, p = %f\n", H_rs_min, P_rs_min)

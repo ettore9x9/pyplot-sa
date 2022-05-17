@@ -987,7 +987,7 @@ body .markdown-body {
 <li>Average time to complete one lap.</li>
 <li>Overall minimum distance from obstacles.</li>
 <li>Average distance from obstacles.</li>
-<li>Percentage of failures, e. g., robot crashes, robot going in the wrong directions, robot blocked in the circuit.</li>
+<li>Percentage of failures, e. g., robot crashes, going in the wrong directions, blocked in the circuit.</li>
 </ul>
 <p>The two implementations are:</p>
 <ul>
@@ -1002,57 +1002,130 @@ body .markdown-body {
 <p>The bash file <code>run.sh</code> performs the data collection autonomously, without user action.</p>
 <p>You can run the data collection (it takes about 18h) simply with:</p>
 <div class="highlight highlight-source-shell"><pre>$ ./run.sh</pre></div>
-<p>In detail, it runs the robot implementations 40 times each, for three laps each run. Every couple of tests, it changes the arena. Evry arena has a different location of silver tokens.</p>
+<p>In detail, it runs the robot implementations 40 times each, for three laps each run. Every couple of tests, this script changes the arena. Every arena has a different location of silver tokens.</p>
 <p>All the 40 arenas are stored in the folder <code>./sr/robot/arenas/arenas_for_statistical_analysis</code>, the first arena is the default one.</p>
-<p>All the code needed to extract data from every run is in the python script: <code>funcAnalysis.py</code>, in particular:</p>
+<p>All the code needed to extract data from every run is in the python script <code>funcAnalysis.py</code>; in particular:</p>
 <ul>
 <li>The <code>timer</code> class takes care of keeping the time of each lap.</li>
 <li>The <code>analyzer</code> class records the minimum distance from obstacles, detects the end of the lap, and reports failures.</li>
 </ul>
-<p>The folder <code>data_collection</code> stores all data extracted. If you need a more verbose output, you can look at the file <code>analysis.log</code>: which reports all the steps performed py the <code>run.sh</code>.</p>
-<p>The robot fails if it comes back in the wrong direction of if it remains blocked in the circuit. In this cases the measurements can be falsed, so it is better to discard the data. In particular:</p>
+<p>The folder <code>data_collection</code> stores all data extracted. If you need a more verbose output, you can look at the file <code>analysis.log</code>: which reports all the steps performed by the <code>run.sh</code>.</p>
+<p>The robot fails if it comes back in the wrong direction or remains blocked in the circuit. In these cases, the measurements can be false, so it is better to discard the data. In particular:</p>
 <ul>
-<li>If the robot is blocked in the circuit, the average distance is falsed.</li>
-<li>If the robot performs only one lap, the average time of a lap is fased.
-In this situation the data are discarded because considered corrupted.</li>
+<li>If the robot is blocked in the circuit, the average distance is false.</li>
+<li>If the robot performs only one lap, the average time of a lap is false.
+In this situation, the data are discarded because deemed corrupted.</li>
 </ul>
 <h2>
 <a id="user-content-statistical-analysis" class="anchor" href="#statistical-analysis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Statistical analysis</h2>
 <h3>
 <a id="user-content-average-distance-from-obstacles" class="anchor" href="#average-distance-from-obstacles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Average distance from obstacles</h3>
+<p>Robots' average distances from obstacles, for different arenas.</p>
 <p align="center">
 <a href="https://github.com/ettore9x9/rt2_statistical_analysis/blob/master/images/avg_dist.png" target="_blank" rel="noopener noreferrer"><img src="https://github.com/ettore9x9/rt2_statistical_analysis/raw/master/images/avg_dist.png" width="50%" height="50%" style="max-width:100%;"></a>
 </p>
-<p>If we consider the difference for each instance of the test we obtain the following distribution.</p>
+<p>If we consider the difference for each instance of the test, we obtain the following distribution.</p>
 <p align="center">
 <a href="https://github.com/ettore9x9/rt2_statistical_analysis/blob/master/images/avg_dist_diff.png" target="_blank" rel="noopener noreferrer"><img src="https://github.com/ettore9x9/rt2_statistical_analysis/raw/master/images/avg_dist_diff.png" width="50%" height="50%" style="max-width:100%;"></a>
 </p>
-<p>To use the <strong>paired ttest</strong>, the difference of distancies must follow a normal distribution. To test if it is the case, we can use the <strong>Shapiro-Wilk test</strong>, designed specifically for small number of data.</p>
+<p>To test if the differences in distances follow a normal distribution, we can use the <strong>Shapiro-Wilk test</strong>, made for a small number of data.</p>
 <blockquote>
-<p>Null hypothesis: <em>the differences of the average distances follow a normal distribution</em></p>
+<p>Null hypothesis: <em>the differences in the average distances follow a normal distribution</em></p>
 <p>Results:</p>
 <ul>
 <li>
 <em>H = 0</em>,</li>
 <li><em>p = 0.210160</em></li>
 </ul>
-<p>We failed to reject the null hypotesis.</p>
+<p>We failed to reject the null hypothesis.</p>
+</blockquote>
+<p>To test if the two samples belong to the same population, we can use the <strong>paired ttest</strong>. Indeed, the two assumptions are satisfied:</p>
+<ul>
+<li>The differences between the two observations follow a normal distribution.</li>
+<li>The test compares two different controllers applied to the same scenario.</li>
+</ul>
+<blockquote>
+<p>Null hypothesis: <em>the two samples of average distances are drawn from the same population</em></p>
+<p>Results:</p>
+<ul>
+<li>
+<em>H = 1</em>,</li>
+<li><em>p = 0.00</em></li>
+</ul>
+<p>We can reject the null hypothesis.</p>
 </blockquote>
 <h3>
 <a id="user-content-average-time-of-a-lap" class="anchor" href="#average-time-of-a-lap" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Average time of a lap</h3>
+<p>Robots' average time of a lap for different arenas.</p>
 <p align="center">
 <a href="https://github.com/ettore9x9/rt2_statistical_analysis/blob/master/images/lap_times.png" target="_blank" rel="noopener noreferrer"><img src="https://github.com/ettore9x9/rt2_statistical_analysis/raw/master/images/lap_times.png" width="50%" height="50%" style="max-width:100%;"></a>
 </p>
+<p>If we make the difference between the previous results, we obtain the following distribution.</p>
 <p align="center">
 <a href="https://github.com/ettore9x9/rt2_statistical_analysis/blob/master/images/lap_time_diff.png" target="_blank" rel="noopener noreferrer"><img src="https://github.com/ettore9x9/rt2_statistical_analysis/raw/master/images/lap_time_diff.png" width="50%" height="50%" style="max-width:100%;"></a>
 </p>
+<p>Once again, to test if the differences between the lap times follow a normal distribution, we can use the <strong>Shapiro-Wilk test</strong>.</p>
+<blockquote>
+<p>Null hypothesis: <em>the differences in the lap times follow a normal distribution</em></p>
+<p>Results:</p>
+<ul>
+<li>
+<em>H = 0</em>,</li>
+<li><em>p = 0.669946</em></li>
+</ul>
+<p>We failed to reject the null hypothesis.</p>
+</blockquote>
+<p>To test if the two samples belong to the same population, we can use the <strong>paired ttest</strong>. Indeed, the two assumptions are satisfied:</p>
+<ul>
+<li>The differences between the two observations follow a normal distribution.</li>
+<li>The test compares two different controllers applied to the same scenario.</li>
+</ul>
+<blockquote>
+<p>Null hypothesis: <em>the two samples of lap times are drawn from the same population</em></p>
+<p>Results:</p>
+<ul>
+<li>
+<em>H = 1</em>,</li>
+<li><em>p = 0.00</em></li>
+</ul>
+<p>We can reject the null hypothesis.</p>
+</blockquote>
 <h3>
 <a id="user-content-minimum-distance-from-obstacles" class="anchor" href="#minimum-distance-from-obstacles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Minimum distance from obstacles</h3>
+<p>Robots' minimum distance from obstacles in each arena.</p>
 <p align="center">
 <a href="https://github.com/ettore9x9/rt2_statistical_analysis/blob/master/images/min_dist.png" target="_blank" rel="noopener noreferrer"><img src="https://github.com/ettore9x9/rt2_statistical_analysis/raw/master/images/min_dist.png" width="50%" height="50%" style="max-width:100%;"></a>
 </p>
+<p>Considering the difference between the previous results, we obtain the following distribution.</p>
 <p align="center">
 <a href="https://github.com/ettore9x9/rt2_statistical_analysis/blob/master/images/min_dist_diff.png" target="_blank" rel="noopener noreferrer"><img src="https://github.com/ettore9x9/rt2_statistical_analysis/raw/master/images/min_dist_diff.png" width="50%" height="50%" style="max-width:100%;"></a>
+</p>
+<p>To test if the differences between the lap times follow a normal distribution, we can use the <strong>Shapiro-Wilk test</strong> again.</p>
+<blockquote>
+<p>Null hypothesis: <em>the differences of the minimum distances follow a normal distribution</em></p>
+<p>Results:</p>
+<ul>
+<li>
+<em>H = 1</em>,</li>
+<li><em>p = 0.00</em></li>
+</ul>
+<p>We can reject the null hypothesis.</p>
+</blockquote>
+<p>To test if the two samples belong to the same population, we can use a non-parametric test: the <strong>U test</strong>.</p>
+<blockquote>
+<p>Null hypothesis: <em>the two samples of minimum distances are drawn from the same population</em></p>
+<p>Results:</p>
+<ul>
+<li>
+<em>H = 1</em>,</li>
+<li><em>p = 0.00</em></li>
+</ul>
+<p>We can reject the null hypothesis.</p>
+</blockquote>
+<h3>
+<a id="user-content-percentage-of-failures" class="anchor" href="#percentage-of-failures" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Percentage of failures</h3>
+<p align="center">
+<a href="https://github.com/ettore9x9/rt2_statistical_analysis/blob/master/images/pie.png" target="_blank" rel="noopener noreferrer"><img src="https://github.com/ettore9x9/rt2_statistical_analysis/raw/master/images/pie.png" width="80%" height="50%" style="max-width:100%;"></a>
 </p>
 <h2>
 <a id="user-content-conclusions" class="anchor" href="#conclusions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Conclusions</h2>

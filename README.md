@@ -53,13 +53,13 @@ Statistical analysis
 Robots' average distances from obstacles, for different arenas.
 
 <p align="center">
-<img src="https://github.com/ettore9x9/rt2_statistical_analysis/blob/master/images/avg_dist.png" width=50% height=50%>
+<img src="./images/avg_dist.png" width=50%>
 </p>
 
 If we consider the difference for each instance of the test, we obtain the following distribution.
 
 <p align="center">
-<img src="https://github.com/ettore9x9/rt2_statistical_analysis/blob/master/images/avg_dist_diff.png" width=50% height=50%>
+<img src="./images/avg_dist_diff.png" width=50%>
 </p>
 
 To test if the differences in distances follow a normal distribution, we can use the **Shapiro-Wilk test**, made for a small number of data.
@@ -90,13 +90,13 @@ To test if the two samples belong to the same population, we can use the **paire
 Robots' average time of a lap for different arenas.
 
 <p align="center">
-<img src="https://github.com/ettore9x9/rt2_statistical_analysis/blob/master/images/lap_times.png" width=50% height=50%>
+<img src="./images/lap_times.png" width=50%>
 </p>
 
 If we make the difference between the previous results, we obtain the following distribution.
 
 <p align="center">
-<img src="https://github.com/ettore9x9/rt2_statistical_analysis/blob/master/images/lap_time_diff.png" width=50% height=50%>
+<img src="./images/lap_time_diff.png" width=50%>
 </p>
 
 Once again, to test if the differences between the lap times follow a normal distribution, we can use the **Shapiro-Wilk test**.
@@ -126,13 +126,13 @@ To test if the two samples belong to the same population, we can use the **paire
 Robots' minimum distance from obstacles in each arena.
 
 <p align="center">
-<img src="https://github.com/ettore9x9/rt2_statistical_analysis/blob/master/images/min_dist.png" width=50% height=50%>
+<img src="./images/min_dist.png" width=50%>
 </p>
 
 Considering the difference between the previous results, we obtain the following distribution.
 
 <p align="center">
-<img src="https://github.com/ettore9x9/rt2_statistical_analysis/blob/master/images/min_dist_diff.png" width=50% height=50%>
+<img src="./images/min_dist_diff.png" width=50%>
 </p>
 
 To test if the differences between the lap times follow a normal distribution, we can use the **Shapiro-Wilk test** again.
@@ -160,7 +160,7 @@ To test if the two samples belong to the same population, we can use a non-param
 This is the percentage of the robot failure driven by the two controllers in different arenas.
 
 <p align="center">
-<img src="https://github.com/ettore9x9/rt2_statistical_analysis/blob/master/images/pie.png" width=80% height=50%>
+<img src="./images/pie.png" width=80%>
 </p>
 
 

@@ -1,7 +1,7 @@
 Statistical Analysis comparing two autonomous robots
 ====================================================
 
-Statistical analysis of the first assignment of research track 1 course, considering two different implementations of the behavior.
+Statistical analysis of the [first assignment of research track 1 course](https://github.com/ettore9x9/RT1_assignment1.git), considering two different implementations of the robot controller.
 
 The goal of this assignment is to find out which one of the two implementations performs better in terms of:
 * Average time to complete one lap.
@@ -40,9 +40,10 @@ All the code needed to extract data from every run is in the python script `func
 
 The folder `data_collection` stores all data extracted. If you need a more verbose output, you can look at the file `analysis.log`: which reports all the steps performed by the `run.sh`.
 
-The robot fails if it comes back in the wrong direction or remains blocked in the circuit. In these cases, the measurements can be false, so it is better to discard the data. In particular:
+Moreover, the robot fails if it comes back in the wrong direction or remains blocked in the circuit. In these cases, measures may be distorted, so it is better to discard them. In particular:
 * If the robot is blocked in the circuit, the average distance is false.
 * If the robot performs only one lap, the average time of a lap is false.
+
 In this situation, the data are discarded because deemed corrupted.
 
 Statistical analysis
@@ -50,13 +51,13 @@ Statistical analysis
 
 ### Average distance from obstacles ###
 
-Robots' average distances from obstacles, for different arenas.
+Robots' average distances from obstacles, for different arenas. Each histogram's column represents the number of times the average distance from obstacles falls into that interval, distinguishing between the two implementations.
 
 <p align="center">
 <img src="./images/avg_dist.png" width=50%>
 </p>
 
-If we consider the difference for each instance of the test, we obtain the following distribution.
+If we make the difference for each test's instance, we will obtain the following distribution.
 
 <p align="center">
 <img src="./images/avg_dist_diff.png" width=50%>
@@ -72,6 +73,8 @@ To test if the differences in distances follow a normal distribution, we can use
 >
 >We failed to reject the null hypothesis.
 
+So, it is reasonable to treat them as data belonging to a population with a normal distribution.
+
 To test if the two samples belong to the same population, we can use the **paired ttest**. Indeed, the two assumptions are satisfied:
 * The differences between the two observations follow a normal distribution. 
 * The test compares two different controllers applied to the same scenario.
@@ -84,16 +87,15 @@ To test if the two samples belong to the same population, we can use the **paire
 >
 >We can reject the null hypothesis.
 
-
 ### Average time of a lap ###
 
-Robots' average time of a lap for different arenas.
+Robots' average time of a lap for different arenas. We notice that *my_controller* has some samples more than *given_controller*: this because the second one has a higher chance of failure.
 
 <p align="center">
 <img src="./images/lap_times.png" width=50%>
 </p>
 
-If we make the difference between the previous results, we obtain the following distribution.
+If we make the difference between the previous results, we obtain the following distribution. We considered only coupled data.
 
 <p align="center">
 <img src="./images/lap_time_diff.png" width=50%>
@@ -145,7 +147,9 @@ To test if the differences between the lap times follow a normal distribution, w
 >
 >We can reject the null hypothesis.
 
-To test if the two samples belong to the same population, we can use a non-parametric test: the **U test**.
+In this case, we can not use the ttest as before: we need a non-parametric test because the difference between the two samples does not follow a normal distribution.
+
+To test if the two samples belong to the same population, we can use the **U test**.
 
 >Null hypothesis: *the two samples of minimum distances are drawn from the same population*
 >
@@ -155,7 +159,9 @@ To test if the two samples belong to the same population, we can use a non-param
 >
 >We can reject the null hypothesis.
 
-### Percentage of failures ###
+Again, in this last case, the two samples do not belong to the same population.
+
+### Percentage of success/failures ###
 
 This is the percentage of the robot failure driven by the two controllers in different arenas.
 
@@ -163,11 +169,10 @@ This is the percentage of the robot failure driven by the two controllers in dif
 <img src="./images/pie.png" width=80%>
 </p>
 
-
 Conclusions
 -----------
 
-With the results of the performed **ttest**, we can say that all results belong to different populations, so:
+With the results of the performed tests, we can infer that all results belong to different populations, so:
 * *my_controller* keeps more distance from obstacles on average.
 * *given_controller* takes less time on average to complete one lap.
 * The minimum distance from the obstacle of *my_controller* is greater than *given_controller*.

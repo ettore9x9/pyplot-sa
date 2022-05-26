@@ -68,7 +68,7 @@ To test if the differences in distances follow a normal distribution, we can use
 >Null hypothesis: *the differences in the average distances follow a normal distribution*
 >
 >Results: 
->+ *H = 0*, 
+>+ *H = 0* 
 >+ *p = 0.210160*
 >
 >We failed to reject the null hypothesis.
@@ -82,7 +82,7 @@ To test if the two samples belong to the same population, we can use the **paire
 >Null hypothesis: *the two samples of average distances are drawn from the same population*
 >
 >Results: 
->+ *H = 1*, 
+>+ *H = 1* 
 >+ *p = 0.00*
 >
 >We can reject the null hypothesis.
@@ -106,7 +106,7 @@ Once again, to test if the differences between the lap times follow a normal dis
 >Null hypothesis: *the differences in the lap times follow a normal distribution*
 >
 >Results: 
->+ *H = 0*, 
+>+ *H = 0* 
 >+ *p = 0.669946*
 >
 >We failed to reject the null hypothesis.
@@ -118,7 +118,7 @@ To test if the two samples belong to the same population, we can use the **paire
 >Null hypothesis: *the two samples of lap times are drawn from the same population*
 >
 >Results: 
->+ *H = 1*, 
+>+ *H = 1* 
 >+ *p = 0.00*
 >
 >We can reject the null hypothesis.
@@ -142,7 +142,7 @@ To test if the differences between the lap times follow a normal distribution, w
 >Null hypothesis: *the differences of the minimum distances follow a normal distribution*
 >
 >Results: 
->+ *H = 1*, 
+>+ *H = 1* 
 >+ *p = 0.00*
 >
 >We can reject the null hypothesis.
@@ -154,7 +154,7 @@ To test if the two samples belong to the same population, we can use the **U tes
 >Null hypothesis: *the two samples of minimum distances are drawn from the same population*
 >
 >Results: 
->+ *H = 1*, 
+>+ *H = 1* 
 >+ *p = 0.00*
 >
 >We can reject the null hypothesis.
